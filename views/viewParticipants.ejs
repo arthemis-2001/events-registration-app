@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participants for <%= event.name %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Participants for <%= event.name %></h1>
+    <div class="row">
+      <% participants.forEach(function(participant) { %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= participant.fullName %></h5>
+            <p class="card-text"><strong>Email:</strong> <%= participant.email %></p>
+            <p class="card-text"><strong>Date of Birth:</strong> <%= participant.dateOfBirth.toDateString() %></p>
+            <p class="card-text"><strong>Heard About:</strong> <%= participant.heardAbout %></p>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+
+</html>

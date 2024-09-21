@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register for
+    <%= event.name %>
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Register for
+      <%= event.name %>
+    </h1>
+    <form action="/<%= event._id %>/register" method="POST">
+      <div class="form-group"> <label for="fullName">Full Name</label>
+        <input type="text" class="form-control" id="fullName" name="fullName" required>
+      </div>
+      <div class="form-group"> <label for="email">Email</label> <input type="email" class="form-control" id="email" name="email" required> </div>
+      <div class="form-group"> <label for="dateOfBirth">Date of
+          Birth</label> <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required> </div>
+      <p>Where did you hear about this event?</p>
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-check"> <input class="form-check-input" type="radio" name="heardAbout" id="social-media" value="Social media" checked> <label class="form-check-label" for="option1"> Social
+                media </label> </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-check"> <input class="form-check-input" type="radio" name="heardAbout" id="friends" value="Friends"> <label class="form-check-label" for="option2"> Friends </label> </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-check"> <input class="form-check-input" type="radio" name="heardAbout" id="found-myself" value="Found myself"> <label class="form-check-label" for="option3"> Found
+                myself </label> </div>
+          </div>
+        </div>
+      </div> <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+</body>
+
+</html>
