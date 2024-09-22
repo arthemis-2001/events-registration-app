@@ -11,6 +11,17 @@
 <body>
   <div class="container">
     <h1 class="my-4">All Events</h1>
+
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <select id="sortBy" class="form-control" onchange="sortEvents()">
+          <option value="title" <%= sortBy === 'title' ? 'selected' : '' %>>Sort by Title</option>
+          <option value="date" <%= sortBy === 'date' ? 'selected' : '' %>>Sort by Date</option>
+          <option value="organizer" <%= sortBy === 'organizer' ? 'selected' : '' %>>Sort by Organizer</option>
+        </select>
+      </div>
+    </div>
+
     <div class="row">
       <div class="row">
         <% events.forEach(function(event) { %>
@@ -19,6 +30,7 @@
             <div class="card-body">
               <h5 class="card-title"><%= event.name %></h5>
               <p class="card-text"><strong>Date:</strong> <%= event.date.toDateString() %></p>
+              <p class="card-text"><strong>Organizer:</strong> <%= event.organizer %></p>
               <p class="card-text"><%= event.description %></p>
               <a href="/<%= event._id %>/register" class="btn btn-secondary">Register</a>
               <a href="/<%= event._id %>/view" class="btn btn-primary">View</a>
@@ -45,6 +57,12 @@
       </ul>
     </nav>
   </div>
+  <script>
+    function sortEvents() {
+      const sortBy = document.getElementById('sortBy').value;
+      window.location.href = `/?sortBy=${sortBy}`;
+    }
+  </script>
 </body>
 
 </html>

@@ -6,11 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Participants for <%= event.name %></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .search-bar {
+      max-width: 400px;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
     <h1>Participants for <%= event.name %></h1>
+    <form method="GET" action="" class="input-group search-bar d-flex align-items-center">
+      <input type="search" class="form-control rounded" placeholder="Search by full name or email" name="q" value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>">
+      <button type="submit" class="btn btn-outline-primary ml-2">Search</button>
+    </form>
     <div class="row">
       <% participants.forEach(function(participant) { %>
       <div class="col-md-4">
